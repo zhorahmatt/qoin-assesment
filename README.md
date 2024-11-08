@@ -11,5 +11,8 @@ Tech Stack :
 
 
 2. How to run
-    go run {number of player} {number or dice}
-    example : go run 3 4
+- How to Run
+```
+go run main.go {numberOfPlayer} {numberOfDice}
+example : go run main.go 3 4
+```

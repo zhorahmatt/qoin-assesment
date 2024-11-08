@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"os"
+	"strconv"
 	"time"
 )
 
@@ -16,8 +18,21 @@ func main() {
 	rand.Seed(time.Now().UnixNano()) // Seed for random number generator
 
 	// Initialize the number of players and dice per player
-	numPlayers := 3
-	dicePerPlayer := 4
+	arg1 := os.Args[1]
+	arg2 := os.Args[2]
+
+	//convert to int
+	numPlayers, err1 := strconv.Atoi(arg1)
+	dicePerPlayer, err2 := strconv.Atoi(arg2)
+
+	if err1 != nil {
+		fmt.Printf("Error convertion '%s' to integer: %v\n", arg1, err1)
+		return
+	}
+	if err2 != nil {
+		fmt.Printf("Error convertion '%s' to integer: %v\n", arg2, err2)
+		return
+	}
 
 	// Initialize players map to hold each player's dice and score
 	players := make(map[int]*Player)
